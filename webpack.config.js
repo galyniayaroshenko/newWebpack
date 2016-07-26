@@ -4,8 +4,8 @@ var webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  context: __dirname + '/app',
-  entry: './main.js',
+  // context: __dirname + '/app',
+  entry: './app/main.js',
   output: {
     path: './build/',
     filename: 'bundle.js'
@@ -32,6 +32,10 @@ module.exports = {
         test: /\.hbs/,
         loader: 'handlebars-loader',
         exclude: /(node_modules|bower_components)/
+      },
+      {
+        test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+        loader: 'file'
       }
     ]
   },
