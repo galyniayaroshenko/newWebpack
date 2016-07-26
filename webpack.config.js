@@ -22,6 +22,11 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
+      {
+        test: /\.hbs/,
+        loader: 'handlebars-loader',
+        exclude: /(node_modules|bower_components)/
       }
     ]
   },
