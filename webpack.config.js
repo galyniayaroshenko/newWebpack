@@ -1,12 +1,17 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
+
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: './app/js/main.js',
+  context: __dirname + '/app',
+  entry: './main.js',
   output: {
-    filename: './build/js/bundle.js'
+    path: './build/',
+    filename: 'bundle.js'
   },
 
-  watch: true,
+  watch: NODE_ENV == 'development',
 
   resolve: {
     modulesDirectories: ['node_modules']
@@ -32,7 +37,20 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('./build/style/bundle.css')
+    new ExtractTextPlugin('./bundle.css'),
+    // new webpack.ProvidePlugin({
+    //   pluck: 'lodash'
+    // })
+    new webpack.optimize.UglifyJsPlugin({
+        mangle: true,
+        output: {
+            comments: false
+        },
+        compress: {
+            warnings: false
+        }
+    })
+
   ]
 
 };

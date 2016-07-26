@@ -1,6 +1,6 @@
-import '../style/main.css';
+import './style/main.css';
 import _ from 'lodash';
-import template from '../template/main.hbs';
+import template from './template/main.hbs';
 
 console.log(_.isEqual(1,2));
 console.log('Smile');
