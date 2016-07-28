@@ -5,7 +5,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   // context: __dirname + '/app',
-  entry: './app/main.js',
+  entry: './app/js/main.js',
   output: {
     path: './build/',
     filename: 'bundle.js'
